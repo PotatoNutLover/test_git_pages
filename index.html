@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Тестовая страница</title>
+    </head>
+    <body>
+        <button id="btn">Отправить GET-запрос</button>
+        <div id="result"></div>
+
+        <script>
+            document
+                .getElementById('btn')
+                .addEventListener('click', function () {
+                    fetch('http://194.87.92.212:8000?user_id=1')
+                        .then((response) => response.text())
+                        .then(
+                            (data) =>
+                                (document.getElementById('result').innerHTML =
+                                    data)
+                        )
+                        .catch((error) => console.error('Ошибка:', error));
+                });
+        </script>
+    </body>
+</html>
